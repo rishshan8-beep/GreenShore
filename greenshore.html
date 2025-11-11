@@ -12,8 +12,8 @@
   <title>GreenShore Talent Recruitment</title>
 
   <!-- Favicon -->
-<link rel="icon" href="/favicon-16x16.png" type="image/x-icon" />
-<link rel="apple-touch-icon" href="/favicon-16x16.png" />
+<link rel="icon" href="/assets/favicon-16x16.png" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/assets/favicon-16x16.png" />
 
 
   <!-- Bootstrap CSS -->
@@ -23,7 +23,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
   <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
     <div class="container">
       <!-- Brand Logo -->
-      <a class="navbar-brand fw-bold text-primary" href="#home"><img class="logo" width="200px" src="/logo.png">
+      <a class="navbar-brand fw-bold text-primary" href="#home"><img class="logo" width="200px" src="/assets/logo.png">
 </a>
 
        <!-- <a href="#home" class="navbar-brand d-lg-none">
@@ -595,168 +595,15 @@
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- Custom JS -->
+  <script src="js/script.js"></script>
+
   <!-- ===========================
        Scroll + Active Navbar Script
   =========================== -->
 
-  <script>
-// ===========================================
-// NAVBAR SCROLL EFFECT + ACTIVE LINK DETECTION
-// ===========================================
-
-// Add blur effect to navbar when scrolling
-window.addEventListener("scroll", () => {
-  const navbar = document.querySelector(".navbar");
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-});
-
-// Select visible content sections only (ignore popups)
-const sections = document.querySelectorAll("section[id]:not(.popup-overlay)");
-const navLinks = document.querySelectorAll(".navbar .nav-link");
-
-// Highlight navbar link based on scroll position
-window.addEventListener("scroll", () => {
-  const scrollY = window.pageYOffset;
-  let activeFound = false;
-
-  sections.forEach(current => {
-    const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 160; // buffer for navbar height
-    const sectionId = current.getAttribute("id");
-
-    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight && !activeFound) {
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").includes(sectionId)) {
-          link.classList.add("active");
-        }
-      });
-      activeFound = true;
-    }
-  });
-
-  // When near top of page, always highlight "Home"
-  if (scrollY < 120) {
-    navLinks.forEach(link => link.classList.remove("active"));
-    const homeLink = document.querySelector('.nav-link[href="#home"]');
-    if (homeLink) homeLink.classList.add("active");
-  }
-});
-
-// Smooth scrolling when clicking navbar links
-navLinks.forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-
-    const targetSelector = link.getAttribute("href");
-    if (!targetSelector || targetSelector === "#") return;
-
-    const target = document.querySelector(targetSelector);
-    if (!target) return; // prevent errors if section missing
-
-    const offsetTop = target.offsetTop - 70;
-    window.scrollTo({
-      top: offsetTop,
-      behavior: "smooth"
-    });
-
-    // Set clicked link active
-    navLinks.forEach(l => l.classList.remove("active"));
-    link.classList.add("active");
-  });
-});
 
 
-// ===========================================
-// POPUP JOB MODAL LOGIC (Add-on for jobPopup)
-// ===========================================
-
-document.addEventListener("DOMContentLoaded", () => {
-  const popup = document.getElementById("jobPopup");
-  const openBtns = document.querySelectorAll(".open-popup");
-  const closeBtn = popup?.querySelector(".close-popup");
-
-  // Open popup when clicking "Explore Roles"
-  openBtns.forEach(btn => {
-    btn.addEventListener("click", e => {
-      e.preventDefault();
-      if (popup) popup.style.display = "flex";
-      document.body.style.overflow = "hidden"; // prevent scroll behind modal
-    });
-  });
-
-  // Close popup when clicking close button
-  closeBtn?.addEventListener("click", () => {
-    popup.style.display = "none";
-    document.body.style.overflow = "auto";
-  });
-
-  // Close popup when clicking outside of card
-  popup?.addEventListener("click", e => {
-    if (e.target === popup) {
-      popup.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-  });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const popup = document.getElementById("jobPopup");
-  const openBtns = document.querySelectorAll(".open-popup");
-  const closeBtn = popup.querySelector(".close-popup");
-
-  // Open popup when Explore Roles clicked
-  openBtns.forEach(btn => {
-    btn.addEventListener("click", e => {
-      e.preventDefault();
-      popup.style.display = "flex";
-      document.body.style.overflow = "hidden";
-    });
-  });
-
-  // Close popup when close button clicked
-  closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-    document.body.style.overflow = "auto";
-  });
-
-  // Close when clicking outside popup
-  popup.addEventListener("click", e => {
-    if (e.target === popup) {
-      popup.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-  });
-
-  // ✅ Close popup & scroll to Apply Form
-  const applyButtons = popup.querySelectorAll('a[href="#apply"]');
-  applyButtons.forEach(button => {
-    button.addEventListener("click", event => {
-      event.preventDefault();
-
-      // Close popup
-      popup.style.display = "none";
-      document.body.style.overflow = "auto";
-
-      // Smooth scroll to Apply section
-      const applySection = document.querySelector("#apply");
-      if (applySection) {
-        setTimeout(() => {
-          window.scrollTo({
-            top: applySection.offsetTop - 70,
-            behavior: "smooth"
-          });
-        }, 200);
-      }
-    });
-  });
-});
-</script>
 
 
 
