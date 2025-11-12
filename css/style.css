@@ -1,7 +1,7 @@
 /* ===========================================
    GreenShore Talent Recruitment - Style Sheet
-   Optimized Version (Rubik Font)
-   =========================================== */
+   Optimized & Responsive Version (Rubik Font)
+=========================================== */
 
 /* Import Rubik Font */
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap");
@@ -11,9 +11,9 @@
 =========================================== */
 :root {
   --primary-color: #0d6b68;
-  /* Deep Green */
   --secondary-color: #e6f0ef;
-  /* Light Mint Gray */
+  --dark-bg: #1c2733;
+  --text-color: #222;
 }
 
 /* ===========================================
@@ -23,18 +23,13 @@ body {
   font-family: "Rubik", sans-serif;
   scroll-behavior: smooth;
   background-color: var(--secondary-color);
-  color: #222;
+  color: var(--text-color);
   line-height: 1.7;
   letter-spacing: 0.2px;
+  overflow-x: hidden;
 }
 
-/* Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   color: var(--primary-color);
   font-weight: 600;
 }
@@ -49,12 +44,8 @@ h6 {
 }
 
 .navbar-brand {
-  color: var(--primary-color);
   font-weight: 700;
   font-size: 1.4rem;
-}
-
-.navbar-brand:hover {
   color: var(--primary-color);
 }
 
@@ -72,7 +63,6 @@ h6 {
   background-color: rgba(13, 107, 104, 0.08);
 }
 
-/* Active Link */
 .nav-link.active {
   background-color: rgba(13, 107, 104, 0.15);
   color: var(--primary-color) !important;
@@ -80,12 +70,10 @@ h6 {
   font-weight: 600;
 }
 
-/* Remove red dot */
 .nav-link.active::after {
   display: none !important;
 }
 
-/* Navbar blur on scroll */
 .navbar.scrolled {
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(6px);
@@ -120,14 +108,16 @@ h6 {
   background-color: var(--primary-color);
   color: #fff;
   border: none;
-  padding: 12px 30px;
-  border-radius: 30px;
+  padding: 14px 32px;
+  border-radius: 50px;
   font-weight: 600;
   transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .btn-main:hover {
   background-color: #095b57;
+  transform: translateY(-2px);
 }
 
 .btn-outline-primary {
@@ -135,7 +125,10 @@ h6 {
   color: var(--primary-color);
   background: transparent;
   font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 50px;
   transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .btn-outline-primary:hover {
@@ -151,7 +144,7 @@ section {
 }
 
 /* ===========================================
-   Service & Card Styling
+   Service Cards
 =========================================== */
 .service-card {
   background: white;
@@ -168,26 +161,6 @@ section {
 }
 
 /* ===========================================
-   Footer
-=========================================== */
-footer {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 40px 0;
-  text-align: center;
-  font-family: "Rubik", sans-serif;
-}
-
-footer a {
-  color: white;
-  transition: 0.3s ease;
-}
-
-footer a:hover {
-  opacity: 0.8;
-}
-
-/* ===========================================
    About Section
 =========================================== */
 #about {
@@ -201,8 +174,9 @@ footer a:hover {
 }
 
 .impact-section {
-  background: #0d6b68;
+  background: var(--primary-color);
   border-radius: 16px;
+  color: #fff;
 }
 
 .impact-section h2 {
@@ -226,7 +200,7 @@ footer a:hover {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background: #0d6b68;
+  background: var(--primary-color);
   color: #fff;
   display: flex;
   align-items: center;
@@ -255,14 +229,14 @@ footer a:hover {
   height: 60px;
   border-radius: 50%;
   background-color: rgba(13, 107, 104, 0.1);
-  color: #0d6b68;
+  color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .explore-link {
-  color: #0d6b68;
+  color: var(--primary-color);
   text-decoration: none;
   transition: 0.3s ease;
 }
@@ -273,7 +247,7 @@ footer a:hover {
 }
 
 /* ===========================================
-   Popup Modal Styling
+   Popup Modal
 =========================================== */
 .popup-overlay {
   display: none;
@@ -294,8 +268,8 @@ footer a:hover {
   overflow-y: auto;
   position: relative;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.3s ease;
   border-radius: 20px;
+  animation: fadeIn 0.3s ease;
 }
 
 .close-popup {
@@ -305,9 +279,8 @@ footer a:hover {
   border: none;
   background: transparent;
   font-size: 2rem;
-  color: #0d6b68;
+  color: var(--primary-color);
   cursor: pointer;
-  line-height: 1;
 }
 
 @keyframes fadeIn {
@@ -315,7 +288,6 @@ footer a:hover {
     opacity: 0;
     transform: translateY(-15px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -330,15 +302,13 @@ footer a:hover {
   font-weight: 400;
   color: #555;
   letter-spacing: 0.2px;
-  font-family: "Rubik", sans-serif;
 }
 
-#why strong {
-  font-weight: 600;
-}
-
+/* ===========================================
+   Apply Form Section
+=========================================== */
 #apply .form-container {
-  background-color: #1c2733;
+  background-color: var(--dark-bg);
   border-radius: 16px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
@@ -351,44 +321,24 @@ footer a:hover {
   color: #fff;
 }
 
-#apply .form-control::placeholder,
-#apply .form-select {
+#apply .form-control::placeholder {
   color: #aaa;
 }
 
 #apply .form-control:focus,
 #apply .form-select:focus {
-  border-color: #0d6b68;
+  border-color: var(--primary-color);
   box-shadow: 0 0 8px rgba(13, 107, 104, 0.5);
   background-color: #243343;
   color: #fff;
 }
 
 #apply .form-check-input:checked {
-  background-color: #0d6b68;
-  border-color: #0d6b68;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
-#apply .input-group-text img {
-  border-radius: 3px;
-}
-
-#apply .input-group-text i.bi-whatsapp {
-  font-size: 1.2rem;
-}
-
-#apply small {
-  color: #ccc;
-  font-size: 0.85rem;
-}
-
-#apply button:hover {
-  background-color: #095b57 !important;
-  transform: translateY(-2px);
-  transition: all 0.3s ease;
-}
-
-/* Make dropdown arrow white */
+/* Dropdown arrow */
 #apply select.form-select {
   color: #fff;
   background-color: #243343;
@@ -396,25 +346,18 @@ footer a:hover {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-caret-down-fill' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658c-.566-.64-.106-1.658.753-1.658h9.592c.86 0 1.32 1.018.754 1.658l-4.796 5.482a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658c-.566-.64-.106-1.658.753-1.658h9.592c.86 0 1.32 1.018.754 1.658l-4.796 5.482a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 14px;
   padding-right: 2.5rem;
 }
 
-/* Change arrow color when focused */
-#apply select.form-select:focus {
-  border-color: #0d6b68;
-  box-shadow: 0 0 8px rgba(13, 107, 104, 0.5);
-  outline: none;
-}
-
-/* ===========================
-   Footer Styling
-=========================== */
+/* ===========================================
+   Footer Section
+=========================================== */
 .footer-section {
-  background-color: #1c2733;
+  background-color: var(--dark-bg);
   color: #ccc;
 }
 
@@ -433,141 +376,42 @@ footer a:hover {
 }
 
 .footer-link:hover {
-  color: #0d6b68;
+  color: var(--primary-color);
 }
 
-.footer-section p,
-.footer-section a {
-  font-size: 0.9rem;
-}
-
-.footer-section hr {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.footer-section .text-light a:hover {
-  color: #0d6b68 !important;
-}
-
-/* Hero general adjustments for small screens */
+/* ===========================================
+   Mobile Responsive Tweaks
+=========================================== */
 @media (max-width: 768px) {
-  /* reduce hero top/bottom padding so content fits nicely on small screens */
   .hero {
     padding: 60px 18px !important;
   }
 
-  /* headline sizing */
   .hero h1 {
     font-size: 2rem !important;
-    line-height: 1.05 !important;
-    margin-bottom: 10px !important;
+    line-height: 1.1;
   }
 
   .hero p {
-    font-size: 0.98rem !important;
+    font-size: 0.95rem;
     max-width: 340px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* CTA wrapper: center + remove any visible box around CTAs */
-  .hero .cta-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    margin: 18px auto 0;
-    padding: 0;             /* remove box padding if any */
-    background: transparent; /* remove box bg if it's showing */
-    border: none;           /* remove border */
-    box-shadow: none;       /* remove shadow */
-  }
-
-  /* Primary CTA full width with nice radius */
-  .hero .btn-main {
-    width: 220px;           /* fixed width on small screens so it looks like pill */
-    max-width: 85%;
-    padding: 12px 20px;
-    border-radius: 28px;
-    font-weight: 600;
-    display: inline-block;
-    text-align: center;
-  }
-
-  /* Secondary CTA smaller and outlined under the primary */
-  .hero .btn-outline-primary {
-    width: 180px;
-    max-width: 80%;
-    padding: 10px 18px;
-    border-radius: 28px;
-    display: inline-block;
-    text-align: center;
-  }
-
-  /* Make them stack and center even if container has extra inner wrapper */
-  .hero .btn-main,
-  .hero .btn-outline-primary {
     margin: 0 auto;
-    box-shadow: none;
   }
 
-  /* If your CTA area is accidentally displayed as a bordered card, explicitly hide */
-  .hero .cta-card,
-  .hero .cta-box,
-  .hero .cta-area {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-  }
-
-  /* Logo + hamburger spacing on mobile */
-  .navbar-brand .logo {
-    max-width: 140px;
-    height: auto;
-  }
-
-  .navbar-toggler {
-    border-radius: 8px;
-  }
-}
-
-/* Extra safety: for very small phones make CTAs full width */
-@media (max-width: 420px) {
-  .hero .btn-main {
-    width: 100% !important;
-    max-width: 100%;
-  }
-  .hero .btn-outline-primary {
-    width: 100% !important;
-    max-width: 100%;
-  }
-}
-
-/* ===========================
-   Fix CTA button spacing (mobile + desktop)
-   =========================== */
-.hero .btn-main,
-.hero .btn-outline-main,
-.hero .btn-outline-primary {
-  display: inline-block;
-  padding: 14px 28px; /* add inner padding */
-  border-radius: 50px;
-  font-weight: 600;
-  text-align: center;
-  transition: all 0.3s ease;
-  margin-bottom: 12px; /* space between buttons */
-}
-
-/* Give consistent width and alignment on mobile */
-@media (max-width: 768px) {
   .hero .btn-main,
-  .hero .btn-outline-main,
   .hero .btn-outline-primary {
     width: 85%;
     max-width: 300px;
     margin: 10px auto;
-    display: block;
+    padding: 14px 28px;
+    border-radius: 50px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero .btn-main,
+  .hero .btn-outline-primary {
+    width: 100%;
+    max-width: 100%;
   }
 }
