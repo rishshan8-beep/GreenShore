@@ -415,3 +415,23 @@ section {
     max-width: 100%;
   }
 }
+
+/* === Fix: Prevent Navbar from Overlapping Hero Section === */
+body {
+  padding-top: 70px; /* Adjust this if your navbar height changes */
+}
+
+/* Smooth anchor scroll offset for fixed navbar */
+html {
+  scroll-padding-top: 80px; /* Ensures anchor links don't hide under navbar */
+}
+
+/* For small screens, adjust slightly */
+@media (max-width: 768px) {
+  body {
+    padding-top: 65px;
+  }
+  html {
+    scroll-padding-top: 75px;
+  }
+}
